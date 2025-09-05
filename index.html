@@ -10,8 +10,8 @@
       (function () {
         try {
           const saved = localStorage.getItem('theme'); // 'dark' | 'light' | null
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const isDark = saved ? saved === 'dark' : prefersDark;
+          // 🔒 Padrão: DARK (ignora prefers quando não houver salvo)
+          const isDark = saved ? saved === 'dark' : true;
           document.documentElement.classList.toggle('dark', isDark);
         } catch (e) {}
       })();

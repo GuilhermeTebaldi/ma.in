@@ -26,8 +26,8 @@ export default function Navbar() {
   const [dark, setDark] = useState(() => {
     if (typeof window === 'undefined') return true
     const saved = localStorage.getItem('theme')
-    if (saved) return saved === 'dark'
-    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? true
+    // 🔒 Padrão: DARK (ignora prefers quando não houver salvo)
+    return saved ? saved === 'dark' : true
   })
 
   const [open, setOpen] = useState(false)
