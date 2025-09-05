@@ -18,7 +18,12 @@ export default function Navbar() {
       localStorage.setItem('lang', code)
       document.documentElement.lang = code
     } catch { /* empty */ }
-  }
+  }useEffect(() => {
+    const html = document.documentElement;
+    html.classList.toggle('dark', true); // força dark
+    try { localStorage.setItem('theme', 'dark'); } catch { /* empty */ }
+  }, []);
+  
 
   // ===== tema (mantido para classe .dark; sem botão) =====
   // persiste tema e respeita prefers-color-scheme

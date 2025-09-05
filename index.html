@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EISTALT — Sistemas Digitais Sob Demanda</title>
+    <meta name="theme-color" content="#0b1220" />
 
-    <!-- Aplica tema antes do React montar (evita flash errado) -->
+    <!-- Garante dark antes do React (padrão = dark) -->
     <script>
       (function () {
         try {
           const saved = localStorage.getItem('theme'); // 'dark' | 'light' | null
-          // 🔒 Padrão: DARK (ignora prefers quando não houver salvo)
-          const isDark = saved ? saved === 'dark' : true;
+          const isDark = saved ? saved === 'dark' : true; // PADRÃO: dark
           document.documentElement.classList.toggle('dark', isDark);
         } catch (e) {}
       })();

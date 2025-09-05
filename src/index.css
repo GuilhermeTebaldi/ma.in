@@ -14,42 +14,22 @@ html, body, #root { height: 100%; }
 
 /* TEMA CLARO (100% BRANCO) */
 :root {
-  /* Fundo e texto */
-  --e-bg: 255 255 255;     /* BRANCO puro */
-  --e-text: 17 24 39;      /* slate-900-ish (quase preto) */
+  --e-bg: 240 249 255;      /* Azul muito claro */
+  --e-text: 15 23 42;       /* Azul marinho */
+  --e-panel: 255 255 255;   /* Branco */
+  --e-stroke: 203 213 225;  /* Azul acinzentado */
 
-  /* Painéis/bordas */
-  --e-panel: 255 255 255;  /* cards, navbar, etc. */
-  --e-stroke: 229 231 235; /* slate-200-ish */
-
-  /* Marca */
-  --e-primary: 59 130 246; /* #3b82f6 */
-  --e-accent: 34 211 238;  /* #22d3ee */
-
-  /* Estados / extras */
-  --e-muted: 248 250 252;  /* slate-50 */
-  --e-danger: 239 68 68;   /* red-500 */
-  --e-warning: 245 158 11; /* amber-500 */
-  --e-success: 34 197 94;  /* green-500 */
+  --e-primary: 14 165 233;  /* Azul celeste (#0ea5e9) */
+  --e-accent: 34 211 238;   /* Turquesa (#22d3ee) */
 }
-
-/* TEMA ESCURO (seu original) */
 .dark {
-  --e-bg: 11 18 32;        /* #0b1220 */
-  --e-text: 255 255 255;   /* branco */
-
-  --e-panel: 15 22 41;     /* #0f1629 */
-  --e-stroke: 27 37 64;    /* #1b2540 */
-
-  --e-primary: 59 130 246; /* #3b82f6 */
-  --e-accent: 34 211 238;  /* #22d3ee */
-
-  --e-muted: 13 17 27;     /* fundo discreto */
-  --e-danger: 248 113 113; /* red-400 */
-  --e-warning: 251 191 36; /* amber-400 */
-  --e-success: 74 222 128; /* green-400 */
+  --e-bg: 12 20 28;         /* Azul petróleo escuro */
+  --e-text: 236 253 245;    /* Verde gelo */
+  --e-panel: 24 36 52;      /* Azul grafite */
+  --e-stroke: 45 65 89;     /* Bordas azuladas */
+  --e-primary: 14 165 233;
+  --e-accent: 34 211 238;
 }
-
 /* =========================
    APLICAÇÃO GLOBAL
    ========================= */
