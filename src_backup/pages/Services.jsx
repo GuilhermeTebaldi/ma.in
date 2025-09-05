@@ -16,21 +16,21 @@ export default function Services() {
         <h3 id="sites" className="text-white font-semibold">
           {t('services.web')}
         </h3>
-        <p className="text-e-text/80 text-sm">
+        <p className="text-white/80 text-sm">
           {t('services.webDesc', 'Institucionais, landing pages, SEO, blogs.')}
         </p>
 
         <h3 id="apps" className="text-white font-semibold mt-6">
           {t('services.app')}
         </h3>
-        <p className="text-e-text/80 text-sm">
+        <p className="text-white/80 text-sm">
           {t('services.appDesc', 'Aplicações web/mobile com autenticação e integrações.')}
         </p>
 
         <h3 id="sistemas" className="text-white font-semibold mt-6">
           {t('services.custom')}
         </h3>
-        <p className="text-e-text/80 text-sm">
+        <p className="text-white/80 text-sm">
           {t('services.customDesc', 'Portais, painéis admin, e-commerce e soluções sob medida.')}
         </p>
       </div>

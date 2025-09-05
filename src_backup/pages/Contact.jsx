@@ -79,7 +79,7 @@ export default function Contact() {
             eistalttecnologia@gmail.com
           </a>
 
-          <div className="text-e-text/70 text-xs">
+          <div className="text-white/70 text-xs">
             {t('contact.personNote', 'Contato: Guilherme Tebaldi')}
           </div>
         </div>
@@ -91,17 +91,17 @@ export default function Contact() {
         >
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
-              <label className="text-xs text-e-text/70">{t('contact.name')}</label>
+              <label className="text-xs text-white/70">{t('contact.name')}</label>
               <input
-                className="mt-1 w-full rounded-xl bg-e-panel/10 border border-e-stroke/60 px-3 py-2 outline-none focus:border-e-accent/60"
+                className="mt-1 w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-e-accent/60"
                 name="name" value={form.name} onChange={update} placeholder={t('contact.placeholders.name', 'Seu nome')}
                 required
               />
             </div>
             <div>
-              <label className="text-xs text-e-text/70">{t('contact.email')}</label>
+              <label className="text-xs text-white/70">{t('contact.email')}</label>
               <input
-                className="mt-1 w-full rounded-xl bg-e-panel/10 border border-e-stroke/60 px-3 py-2 outline-none focus:border-e-accent/60"
+                className="mt-1 w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-e-accent/60"
                 name="email" type="email" value={form.email} onChange={update} placeholder={t('contact.placeholders.email', 'voce@email.com')}
                 required
               />
@@ -109,9 +109,9 @@ export default function Contact() {
           </div>
 
           <div>
-            <label className="text-xs text-e-text/70">{t('contact.message')}</label>
+            <label className="text-xs text-white/70">{t('contact.message')}</label>
             <textarea
-              className="mt-1 min-h-[110px] w-full rounded-xl bg-e-panel/10 border border-e-stroke/60 px-3 py-2 outline-none focus:border-e-accent/60"
+              className="mt-1 min-h-[110px] w-full rounded-xl bg-white/5 border border-white/10 px-3 py-2 outline-none focus:border-e-accent/60"
               name="message" value={form.message} onChange={update} placeholder={t('contact.placeholders.message', 'Conte sua ideia em poucas linhas...')}
               required
             />

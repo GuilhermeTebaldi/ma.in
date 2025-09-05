@@ -31,7 +31,7 @@ export default function MiniPortfolioPreview() {
   return (
     <>
       {/* CARD */}
-      <div className="rounded-xl border border-e-stroke/60 bg-e-panel/10 p-3">
+      <div className="rounded-xl border border-white/10 bg-white/5 p-3">
         {/* área do slide */}
         <div className="relative aspect-video overflow-hidden rounded-lg">
           <AnimatePresence mode="popLayout">
@@ -54,26 +54,26 @@ export default function MiniPortfolioPreview() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
           <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between gap-3">
             <div className="min-w-0">
-              <div className="text-[11px] text-e-text/70 leading-none">Preview</div>
+              <div className="text-[11px] text-white/70 leading-none">Preview</div>
               <div className="text-white font-medium truncate">{current?.title || 'Portfólio Interativo'}</div>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={prev}
-                className="px-2 py-1 rounded-md bg-black/40 border border-e-stroke/60 text-e-text/80 text-xs hover:bg-black/60"
+                className="px-2 py-1 rounded-md bg-black/40 border border-white/10 text-white/80 text-xs hover:bg-black/60"
               >
                 ‹
               </button>
               <button
                 onClick={next}
-                className="px-2 py-1 rounded-md bg-black/40 border border-e-stroke/60 text-e-text/80 text-xs hover:bg-black/60"
+                className="px-2 py-1 rounded-md bg-black/40 border border-white/10 text-white/80 text-xs hover:bg-black/60"
               >
                 ›
               </button>
               <button
                 onClick={() => setOpen(true)}
-                className="px-2 py-1 rounded-md bg-e-accent/20 text-white text-xs border border-e-stroke/60 hover:bg-e-accent/30"
+                className="px-2 py-1 rounded-md bg-e-accent/20 text-white text-xs border border-white/10 hover:bg-e-accent/30"
                 title="Ampliar"
               >
                 Ampliar
@@ -91,7 +91,7 @@ export default function MiniPortfolioPreview() {
 
         {/* CTA */}
         <div className="text-center mt-3">
-          <div className="text-e-text/70 text-sm leading-none">Portfólio Interativo</div>
+          <div className="text-white/70 text-sm leading-none">Portfólio Interativo</div>
           <Link to="/portfolio" className="btn btn-primary mt-3 inline-block">
             Ver Portfólio
           </Link>
@@ -109,7 +109,7 @@ export default function MiniPortfolioPreview() {
           >
             <div className="absolute inset-0 grid place-items-center p-4">
               <motion.div
-                className="w-full max-w-5xl rounded-2xl overflow-hidden border border-e-stroke/60 bg-e-panel"
+                className="w-full max-w-5xl rounded-2xl overflow-hidden border border-white/10 bg-e-panel"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 10, opacity: 0 }}
@@ -126,7 +126,7 @@ export default function MiniPortfolioPreview() {
                   />
                   <button
                     onClick={() => setOpen(false)}
-                    className="absolute top-3 right-3 h-9 w-9 grid place-items-center rounded-full bg-black/60 border border-e-stroke/60 text-e-text/80 hover:bg-black/80"
+                    className="absolute top-3 right-3 h-9 w-9 grid place-items-center rounded-full bg-black/60 border border-white/10 text-white/80 hover:bg-black/80"
                     aria-label="Fechar"
                   >
                     <X className="w-4 h-4" />
@@ -136,19 +136,19 @@ export default function MiniPortfolioPreview() {
                 <div className="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div>
                     <div className="text-white font-semibold">{current?.title}</div>
-                    <div className="text-e-text/70 text-sm">{current?.description}</div>
+                    <div className="text-white/70 text-sm">{current?.description}</div>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={prev}
-                      className="px-3 py-2 rounded-xl bg-e-panel/10 border border-e-stroke/60 text-e-text/80 hover:bg-e-panel/20 text-sm"
+                      className="px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:bg-white/10 text-sm"
                     >
                       Anterior
                     </button>
                     <button
                       onClick={next}
-                      className="px-3 py-2 rounded-xl bg-e-panel/10 border border-e-stroke/60 text-e-text/80 hover:bg-e-panel/20 text-sm"
+                      className="px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:bg-white/10 text-sm"
                     >
                       Próximo
                     </button>

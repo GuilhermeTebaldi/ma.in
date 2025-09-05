@@ -58,7 +58,7 @@ export default function Home() {
             <h3 className="text-white font-semibold text-lg">
               {t('home.cta.title', 'Pronto para começar?')}
             </h3>
-            <p className="text-e-text/70 text-sm">
+            <p className="text-white/70 text-sm">
               {t(
                 'home.cta.subtitle',
                 'Conte sua ideia e receba um plano com prazos e orçamento.'

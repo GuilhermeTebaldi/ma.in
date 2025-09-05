@@ -45,7 +45,7 @@ export default function Portfolio() {
 
       {/* se por algum motivo vier vazio, mostramos uma pista visual */}
       {(!ALL || ALL.length === 0) && (
-        <div className="card p-4 text-sm text-e-text/80">
+        <div className="card p-4 text-sm text-white/80">
           <div><strong>{t('portfolio.empty.title', 'Nada carregado do data.')}</strong></div>
           <div>
             {t('portfolio.empty.hint', 'Verifique se existe {{path}} e exporta {{exportName}} nomeado.', {
@@ -67,7 +67,7 @@ export default function Portfolio() {
       </div>
 
       {list.length === 0 && ALL?.length > 0 && (
-        <div className="text-e-text/60 text-sm">
+        <div className="text-white/60 text-sm">
           {t('portfolio.noMatches', 'Nenhum projeto bate com os filtros/busca atuais.')}
         </div>
       )}

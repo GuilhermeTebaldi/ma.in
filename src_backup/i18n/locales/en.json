@@ -1,0 +1,125 @@
+{
+    "brand": "EISTALT",
+    "cta.getQuote": "Get a quote",
+    "nav.home": "Home",
+    "nav.services": "Services",
+    "nav.portfolio": "Portfolio",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+  
+    "hero.title": "On-demand digital systems that elevate your business",
+    "hero.subtitle": "Websites, apps and end-to-end solutions with performance, support and cutting-edge tech.",
+    "hero.primaryCta": "Start a project",
+    "hero.secondaryCta": "View portfolio",
+    "hero.highlight": "Websites, Apps & Tailored Systems",
+    "hero.bullets": {
+      "performance": "Performance & SEO",
+      "support": "Dedicated support",
+      "tech": "Modern technologies"
+    },
+    "hero.previewNote": "See our work with filters by type (website, app, system) and details for each project.",
+  
+    "services.title": "Services",
+    "services.web": "Websites",
+    "services.app": "Apps",
+    "services.custom": "Custom Systems",
+  
+    "contact.title": "Contact",
+    "contact.name": "Name",
+    "contact.email": "Email",
+    "contact.message": "Message",
+    "contact.send": "Send",
+  
+    "footer.rights": "All rights reserved",
+    "footer.links": "Links",
+    "footer.contact": "Contact",
+    "footer.description": "On-demand digital systems: websites, apps and complete solutions to boost your business.",
+    "footer.whatsappBR": "WhatsApp Brazil",
+    "footer.whatsappIT": "WhatsApp Italy",
+    "footer.talkTo": "Talk to Guilherme Tebaldi",
+  
+    "filters": {
+      "all": "All",
+      "site": "Website",
+      "ecommerce": "E-commerce",
+      "sistema": "System",
+      "jogo": "Game",
+      "searchPlaceholder": "Search project..."
+    },
+  
+    "aria": {
+      "changeLanguage": "Change language"
+    },
+    "services": {
+    "subtitle": "Clarity, performance and results-focused.",
+    "webDesc": "Institutional, landing pages, SEO, blogs.",
+    "appDesc": "Web/mobile applications with authentication and integrations.",
+    "customDesc": "Portals, admin panels, e-commerce and tailor-made solutions."
+  },
+  "about": {
+    "title": "About EISTALT",
+    "subtitle": "Mission, vision and values focused on innovation and trust.",
+    "mission": "Mission: create digital solutions that generate real value.",
+    "vision": "Vision: to be a reference in tailor-made products and user experience.",
+    "values": "Values: performance, transparency, support and results."
+  },
+  "contact": {
+    "subtitle": "Choose a direct channel or send us a message.",
+    "talkNow": "Talk now",
+    "whatsappBR": {
+      "title": "WhatsApp Brazil",
+      "short": "WhatsApp BR"
+    },
+    "whatsappIT": {
+      "title": "WhatsApp Italy",
+      "short": "WhatsApp IT"
+    },
+    "emailTitle": "Send email",
+    "personNote": "Contact: Guilherme Tebaldi",
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@email.com",
+      "message": "Describe your idea in a few lines..."
+    },
+    "sla": "We reply quickly during business hours.",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Error sending message. Please try again."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "diag": "Diagnostics: received {{count}} projects from data.",
+    "empty": {
+      "title": "Nothing loaded from data.",
+      "hint": "Check if {{path}} exists and exports a named {{exportName}}.",
+      "importPath": "Import path in {{file}}: {{importPath}}"
+    },
+    "noMatches": "No projects match the current filters/search."
+  },
+  "home": {
+    "services": {
+      "title": "Services that boost your business",
+      "subtitle": "From institutional websites to complete web/mobile apps, focused on performance and scalability."
+    },
+    "cards": {
+      "web": {
+        "title": "Modern Websites",
+        "desc": "Landing pages and institutional websites that are fast, accessible and SEO friendly."
+      },
+      "apps": {
+        "title": "Applications",
+        "desc": "Web and mobile apps with sharp UX, integrations and authentication."
+      },
+      "systems": {
+        "title": "Custom Systems",
+        "desc": "Dashboards, admin panels and backends tailored to your process."
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Tell us your idea and get a plan with deadlines and budget.",
+      "button": "Talk to EISTALT"
+    }
+  }
+  }
+  

@@ -12,9 +12,9 @@ export default function About() {
         subtitle={t('about.subtitle', 'Missão, visão e valores voltados à inovação e confiança.')}
       />
       <div className="card p-6 space-y-3">
-        <p className="text-e-text/80">{t('about.mission', 'Missão: criar soluções digitais que geram valor real.')}</p>
-        <p className="text-e-text/80">{t('about.vision', 'Visão: ser referência em produtos sob medida e experiência do usuário.')}</p>
-        <p className="text-e-text/80">{t('about.values', 'Valores: performance, transparência, suporte e resultado.')}</p>
+        <p className="text-white/80">{t('about.mission', 'Missão: criar soluções digitais que geram valor real.')}</p>
+        <p className="text-white/80">{t('about.vision', 'Visão: ser referência em produtos sob medida e experiência do usuário.')}</p>
+        <p className="text-white/80">{t('about.values', 'Valores: performance, transparência, suporte e resultado.')}</p>
       </div>
     </div>
   )

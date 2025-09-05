@@ -41,7 +41,7 @@ export default function LanguageSwitcher({ compact = false }) {
             <button
               key={code}
               onClick={() => choose(code)}
-              className={`w-full text-left px-3 py-2 rounded-lg hover:bg-e-panel/10 ${lang === code ? 'bg-e-panel/10' : ''}`}
+              className={`w-full text-left px-3 py-2 rounded-lg hover:bg-white/5 ${lang === code ? 'bg-white/5' : ''}`}
             >
               {label}
             </button>

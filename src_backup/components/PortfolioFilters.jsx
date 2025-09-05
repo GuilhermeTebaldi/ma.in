@@ -23,8 +23,8 @@ export default function PortfolioFilters({ active, onChange, query, onQuery }) {
             onClick={() => onChange(f.key)}
             className={`px-3 py-2 rounded-xl text-sm border transition ${
               active === f.key
-                ? 'bg-e-panel/20 text-white border-e-stroke/60'
-                : 'bg-e-panel/10 text-e-text/80 hover:bg-e-panel/20 border-e-stroke/60'
+                ? 'bg-white/10 text-white border-white/20'
+                : 'bg-white/5 text-white/80 hover:bg-white/10 border-white/10'
             }`}
           >
             {f.label}
@@ -37,7 +37,7 @@ export default function PortfolioFilters({ active, onChange, query, onQuery }) {
           value={query}
           onChange={e => onQuery(e.target.value)}
           placeholder={t('filters.searchPlaceholder', 'Buscar projeto...')}
-          className="w-full sm:w-72 rounded-xl bg-e-panel/10 border border-e-stroke/60 px-3 py-2 text-sm outline-none focus:border-e-accent/60"
+          className="w-full sm:w-72 rounded-xl bg-white/5 border border-white/10 px-3 py-2 text-sm outline-none focus:border-e-accent/60"
         />
       </div>
     </div>

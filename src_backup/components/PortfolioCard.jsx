@@ -55,7 +55,7 @@ export default function PortfolioCard({ project }) {
   return (
     <div className="card overflow-hidden group">
       {/* capa */}
-      <div className="aspect-video border-b border-e-stroke/60 relative">
+      <div className="aspect-video border-b border-white/10 relative">
         {cover ? (
           <img
             src={cover}
@@ -72,7 +72,7 @@ export default function PortfolioCard({ project }) {
             className="w-full h-full object-cover"
           />
         )}
-        <div className="absolute top-3 left-3 text-xs px-2 py-1 rounded-full bg-black/40 border border-e-stroke/60 text-e-text/80 capitalize">
+        <div className="absolute top-3 left-3 text-xs px-2 py-1 rounded-full bg-black/40 border border-white/10 text-white/80 capitalize">
           {typeLabel}
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function PortfolioCard({ project }) {
         </div>
 
         {description && (
-          <p className="text-e-text/70 text-sm mt-1">{description}</p>
+          <p className="text-white/70 text-sm mt-1">{description}</p>
         )}
 
         {Array.isArray(tags) && tags.length > 0 && (
@@ -102,7 +102,7 @@ export default function PortfolioCard({ project }) {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2 py-1 rounded-full border border-e-stroke/60 text-e-text/70 bg-e-panel/10"
+                className="text-xs px-2 py-1 rounded-full border border-white/10 text-white/70 bg-white/5"
               >
                 {tag}
               </span>
@@ -111,7 +111,7 @@ export default function PortfolioCard({ project }) {
         )}
 
         {!url && (
-          <div className="mt-3 text-xs text-e-text/60">
+          <div className="mt-3 text-xs text-white/60">
             {t('portfolio.linkSoon', 'Link em breve.')}
           </div>
         )}
