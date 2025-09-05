@@ -12,30 +12,23 @@ html, body, #root { height: 100%; }
 
 /* TEMA CLARO (100% BRANCO) */
 :root {
-  /* Fundo global e texto */
-  --e-bg: 255 255 255;     /* BRANCO puro */
-  --e-text: 17 24 39;      /* slate-900-ish (quase preto) */
+  --e-bg: 255 255 255;      /* Fundo branco */
+  --e-text: 17 24 39;       /* Quase preto */
+  --e-panel: 255 255 255;   /* Cards brancos */
+  --e-stroke: 229 231 235;  /* Bordas cinza claro */
 
-  /* Painéis/bordas (usadas nas classes e-*) */
-  --e-panel: 255 255 255;  /* BRANCO puro para cards, navbar, etc. */
-  --e-stroke: 229 231 235; /* slate-200-ish (cinza BEM claro) */
-
-  /* Cores de marca (como no original) */
-  --e-primary: 59 130 246; /* #3b82f6 */
-  --e-accent: 34 211 238;  /* #22d3ee */
+  --e-primary: 37 99 235;   /* Azul vivo */
+  --e-accent: 16 185 129;   /* Verde menta */
 }
-
-/* TEMA ESCURO (mantém teu original) */
 .dark {
-  --e-bg: 11 18 32;        /* #0b1220 */
-  --e-text: 255 255 255;   /* branco */
-
-  --e-panel: 15 22 41;     /* #0f1629 */
-  --e-stroke: 27 37 64;    /* #1b2540 */
-
-  --e-primary: 59 130 246; /* #3b82f6 */
-  --e-accent: 34 211 238;  /* #22d3ee */
+  --e-bg: 17 24 39;         /* Fundo quase preto */
+  --e-text: 255 255 255;    /* Texto branco */
+  --e-panel: 31 41 55;      /* Painéis cinza-escuro */
+  --e-stroke: 55 65 81;     /* Bordas cinza */
+  --e-primary: 37 99 235;   /* Azul vivo */
+  --e-accent: 16 185 129;   /* Verde menta */
 }
+
 
 /* Aplica no body usando as vars (vale pro claro e escuro) */
 body {
