@@ -2,35 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* suas utilitárias com @apply depois disso */
+/* =========================
+   BASE & RESET
+   ========================= */
 :root { --radius: 1rem; }
 html, body, #root { height: 100%; }
 
 /* =========================
-   Paletas por variáveis CSS
+   PALETAS POR VARIÁVEIS CSS
    ========================= */
 
 /* TEMA CLARO (100% BRANCO) */
 :root {
-  --e-bg: 255 255 255;      /* Fundo branco */
-  --e-text: 17 24 39;       /* Quase preto */
-  --e-panel: 255 255 255;   /* Cards brancos */
-  --e-stroke: 229 231 235;  /* Bordas cinza claro */
+  /* Fundo e texto */
+  --e-bg: 255 255 255;     /* BRANCO puro */
+  --e-text: 17 24 39;      /* slate-900-ish (quase preto) */
 
-  --e-primary: 37 99 235;   /* Azul vivo */
-  --e-accent: 16 185 129;   /* Verde menta */
+  /* Painéis/bordas */
+  --e-panel: 255 255 255;  /* cards, navbar, etc. */
+  --e-stroke: 229 231 235; /* slate-200-ish */
+
+  /* Marca */
+  --e-primary: 59 130 246; /* #3b82f6 */
+  --e-accent: 34 211 238;  /* #22d3ee */
+
+  /* Estados / extras */
+  --e-muted: 248 250 252;  /* slate-50 */
+  --e-danger: 239 68 68;   /* red-500 */
+  --e-warning: 245 158 11; /* amber-500 */
+  --e-success: 34 197 94;  /* green-500 */
 }
+
+/* TEMA ESCURO (seu original) */
 .dark {
-  --e-bg: 17 24 39;         /* Fundo quase preto */
-  --e-text: 255 255 255;    /* Texto branco */
-  --e-panel: 31 41 55;      /* Painéis cinza-escuro */
-  --e-stroke: 55 65 81;     /* Bordas cinza */
-  --e-primary: 37 99 235;   /* Azul vivo */
-  --e-accent: 16 185 129;   /* Verde menta */
+  --e-bg: 11 18 32;        /* #0b1220 */
+  --e-text: 255 255 255;   /* branco */
+
+  --e-panel: 15 22 41;     /* #0f1629 */
+  --e-stroke: 27 37 64;    /* #1b2540 */
+
+  --e-primary: 59 130 246; /* #3b82f6 */
+  --e-accent: 34 211 238;  /* #22d3ee */
+
+  --e-muted: 13 17 27;     /* fundo discreto */
+  --e-danger: 248 113 113; /* red-400 */
+  --e-warning: 251 191 36; /* amber-400 */
+  --e-success: 74 222 128; /* green-400 */
 }
 
-
-/* Aplica no body usando as vars (vale pro claro e escuro) */
+/* =========================
+   APLICAÇÃO GLOBAL
+   ========================= */
 body {
   background-color: rgb(var(--e-bg));
   color: rgb(var(--e-text));
@@ -38,19 +60,77 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ...btn, .card etc (como te passei) ...
-   Se quiser, utilitárias prontas (opcional):
+/* Seleção de texto harmonizada */
+::selection {
+  background: rgb(var(--e-primary) / 0.18);
+  color: rgb(var(--e-text));
+}
 
+/* Acessibilidade: respeita redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* =========================
+   SOMBRAS CUSTOM (usadas nos cards/hero)
+   ========================= */
+.shadow-e-sm { box-shadow: 0 1px 2px rgb(0 0 0 / .06), 0 1px 1px rgb(0 0 0 / .04); }
+.shadow-e-md { box-shadow: 0 10px 20px rgb(0 0 0 / .12), 0 2px 6px rgb(0 0 0 / .10); }
+.shadow-e-lg { box-shadow: 0 20px 40px rgb(0 0 0 / .16), 0 10px 20px rgb(0 0 0 / .12); }
+
+/* =========================
+   COMPONENTES UTILITÁRIOS
+   ========================= */
+
+/* Botões */
 .btn {
-  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-e-stroke/60 bg-e-panel/60 text-[rgb(var(--e-text))] hover:bg-black/5 transition;
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition;
+  background-color: rgb(var(--e-panel) / 0.60);
+  border: 1px solid rgb(var(--e-stroke) / 0.60);
+  color: rgb(var(--e-text));
 }
+.btn:hover { background-color: rgb(0 0 0 / 0.05); }
+
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-e-primary text-white border border-transparent hover:opacity-90 transition;
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition;
+  background-color: rgb(var(--e-primary));
+  color: white;
+  border: 1px solid transparent;
 }
+.btn-primary:hover { filter: brightness(0.95); }
+
 .btn-ghost {
-  @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 border border-e-stroke/60 bg-white/0 text-[rgb(var(--e-text))] hover:bg-black/5 transition;
+  @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm transition;
+  background-color: transparent;
+  border: 1px solid rgb(var(--e-stroke) / 0.60);
+  color: rgb(var(--e-text));
 }
+.btn-ghost:hover { background-color: rgb(0 0 0 / 0.05); }
+
+/* Cards */
 .card {
-  @apply rounded-2xl border border-e-stroke/60 bg-e-panel/60 shadow-e-md;
+  @apply rounded-2xl shadow-e-md;
+  background-color: rgb(var(--e-panel) / 0.60);
+  border: 1px solid rgb(var(--e-stroke) / 0.60);
 }
-*/
+
+/* Inputs / Select / Textarea */
+.input, input[type="text"], input[type="email"], input[type="url"],
+input[type="number"], input[type="password"], .select, select, .textarea, textarea {
+  @apply rounded-xl w-full text-sm outline-none transition;
+  background-color: rgb(255 255 255 / 0.05);
+  border: 1px solid rgb(var(--e-stroke) / 0.60);
+  color: rgb(var(--e-text));
+  padding: 0.5rem 0.75rem;
+}
+.input:focus, input:focus, .select:focus, select:focus, .textarea:focus, textarea:focus {
+  border-color: rgb(var(--e-accent) / 0.60);
+  box-shadow: 0 0 0 3px rgb(var(--e-accent) / 0.25);
+}
+
+/* Links padrão */
+a { color: rgb(var(--e-primary)); }
+a:hover { opacity: .9; }
+
+/* Bordas arredondadas padrão */
+.rounded-e { border-radius: var(--radius); }
