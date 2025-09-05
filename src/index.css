@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* suas utilitárias com @apply depois disso */
+:root { --radius: 1rem; }
+html, body, #root { height: 100%; }
+
+/* =========================
+   Paletas por variáveis CSS
+   ========================= */
+
+/* TEMA CLARO (100% BRANCO) */
+:root {
+  /* Fundo global e texto */
+  --e-bg: 255 255 255;     /* BRANCO puro */
+  --e-text: 17 24 39;      /* slate-900-ish (quase preto) */
+
+  /* Painéis/bordas (usadas nas classes e-*) */
+  --e-panel: 255 255 255;  /* BRANCO puro para cards, navbar, etc. */
+  --e-stroke: 229 231 235; /* slate-200-ish (cinza BEM claro) */
+
+  /* Cores de marca (como no original) */
+  --e-primary: 59 130 246; /* #3b82f6 */
+  --e-accent: 34 211 238;  /* #22d3ee */
+}
+
+/* TEMA ESCURO (mantém teu original) */
+.dark {
+  --e-bg: 11 18 32;        /* #0b1220 */
+  --e-text: 255 255 255;   /* branco */
+
+  --e-panel: 15 22 41;     /* #0f1629 */
+  --e-stroke: 27 37 64;    /* #1b2540 */
+
+  --e-primary: 59 130 246; /* #3b82f6 */
+  --e-accent: 34 211 238;  /* #22d3ee */
+}
+
+/* Aplica no body usando as vars (vale pro claro e escuro) */
+body {
+  background-color: rgb(var(--e-bg));
+  color: rgb(var(--e-text));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ...btn, .card etc (como te passei) ...
+   Se quiser, utilitárias prontas (opcional):
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-e-stroke/60 bg-e-panel/60 text-[rgb(var(--e-text))] hover:bg-black/5 transition;
+}
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-e-primary text-white border border-transparent hover:opacity-90 transition;
+}
+.btn-ghost {
+  @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 border border-e-stroke/60 bg-white/0 text-[rgb(var(--e-text))] hover:bg-black/5 transition;
+}
+.card {
+  @apply rounded-2xl border border-e-stroke/60 bg-e-panel/60 shadow-e-md;
+}
+*/

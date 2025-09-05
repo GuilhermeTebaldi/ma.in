@@ -1,0 +1,128 @@
+{
+    "brand": "EISTALT",
+    "cta.getQuote": "Solicitar orçamento",
+    "nav.home": "Início",
+    "nav.services": "Serviços",
+    "nav.portfolio": "Portfólio",
+    "nav.about": "Sobre",
+    "nav.contact": "Contato",
+  
+    "hero.title": "Sistemas digitais sob demanda que elevam seu negócio",
+    "hero.subtitle": "Sites, apps e soluções completas com performance, suporte e tecnologia de ponta.",
+    "hero.primaryCta": "Começar projeto",
+    "hero.secondaryCta": "Ver portfólio",
+    "hero.highlight": "Sites, Apps & Sistemas Sob Medida",
+    "hero.bullets": {
+      "performance": "Performance & SEO",
+      "support": "Suporte dedicado",
+      "tech": "Tecnologias modernas"
+    },
+    "hero.previewNote": "Veja nossos trabalhos com filtros por tipo (site, app, sistema) e detalhes de cada projeto.",
+  
+    "services.title": "Serviços",
+    "services.web": "Sites",
+    "services.app": "Aplicativos",
+    "services.custom": "Sistemas Personalizados",
+  
+    "contact.title": "Contato",
+    "contact.name": "Nome",
+    "contact.email": "E-mail",
+    "contact.message": "Mensagem",
+    "contact.send": "Enviar",
+  
+    "footer.rights": "Todos os direitos reservados",
+    "footer.links": "Links",
+    "footer.contact": "Contato",
+    "footer.description": "Sistemas digitais sob demanda: sites, apps e soluções completas para potencializar o seu negócio.",
+    "footer.whatsappBR": "WhatsApp Brasil",
+    "footer.whatsappIT": "WhatsApp Itália",
+    "footer.talkTo": "Falar com Guilherme Tebaldi",
+  
+    "filters": {
+      "all": "Todos",
+      "site": "Site",
+      "ecommerce": "E-commerce",
+      "sistema": "Sistema",
+      "jogo": "Jogo",
+      "searchPlaceholder": "Buscar projeto..."
+    },
+  
+    "aria": {
+      "changeLanguage": "Trocar idioma"
+    },
+    
+        "services": {
+          "subtitle": "Clareza, performance e foco no resultado.",
+          "webDesc": "Institucionais, landing pages, SEO, blogs.",
+          "appDesc": "Aplicações web/mobile com autenticação e integrações.",
+          "customDesc": "Portais, painéis admin, e-commerce e soluções sob medida."
+        },
+        "about": {
+    "title": "Sobre a EISTALT",
+    "subtitle": "Missão, visão e valores voltados à inovação e confiança.",
+    "mission": "Missão: criar soluções digitais que geram valor real.",
+    "vision": "Visão: ser referência em produtos sob medida e experiência do usuário.",
+    "values": "Valores: performance, transparência, suporte e resultado."
+  },
+  "contact": {
+    "subtitle": "Escolha um canal direto ou envie uma mensagem.",
+    "talkNow": "Fale agora",
+    "whatsappBR": {
+      "title": "WhatsApp Brasil",
+      "short": "WhatsApp BR"
+    },
+    "whatsappIT": {
+      "title": "WhatsApp Itália",
+      "short": "WhatsApp IT"
+    },
+    "emailTitle": "Enviar e-mail",
+    "personNote": "Contato: Guilherme Tebaldi",
+    "placeholders": {
+      "name": "Seu nome",
+      "email": "voce@email.com",
+      "message": "Conte sua ideia em poucas linhas..."
+    },
+    "sla": "Respondemos rápido em horário comercial.",
+    "sending": "Enviando...",
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Erro ao enviar mensagem. Tente novamente."
+  },
+  "portfolio": {
+    "title": "Portfólio",
+    "diag": "Diagnóstico: recebi {{count}} projetos do data.",
+    "empty": {
+      "title": "Nada carregado do data.",
+      "hint": "Verifique se existe {{path}} e exporta {{exportName}} nomeado.",
+      "importPath": "Caminho importado em {{file}}: {{importPath}}"
+    },
+    "noMatches": "Nenhum projeto bate com os filtros/busca atuais."
+  },
+  "home": {
+    "services": {
+      "title": "Serviços que aceleram seu negócio",
+      "subtitle": "Do site institucional a aplicações web/mobile completas, com foco em performance e escalabilidade."
+    },
+    "cards": {
+      "web": {
+        "title": "Sites Modernos",
+        "desc": "Landing pages e sites institucionais rápidos, acessíveis e com SEO sólido."
+      },
+      "apps": {
+        "title": "Aplicativos",
+        "desc": "Apps web e mobile com UX afiada, integrações e autenticação."
+      },
+      "systems": {
+        "title": "Sistemas Personalizados",
+        "desc": "Painéis, dashboards e backends sob medida para o seu processo."
+      }
+    },
+    "cta": {
+      "title": "Pronto para começar?",
+      "subtitle": "Conte sua ideia e receba um plano com prazos e orçamento.",
+      "button": "Falar com a EISTALT"
+    }
+  }
+      
+      
+  }
+  

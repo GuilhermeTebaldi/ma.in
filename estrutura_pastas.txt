@@ -1,0 +1,42 @@
+.
+├── .gitignore
+├── .vscode
+│   └── settings.json
+├── eslint.config.js
+├── estrutura_pastas.txt
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── nome-da-imagem.jpg
+│   └── vite.svg
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── MiniPortfolioPreview.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── PortfolioCard.jsx
+│   │   ├── PortfolioFilters.jsx
+│   │   ├── SectionTitle.jsx
+│   │   └── ServiceCard.jsx
+│   ├── data
+│   │   └── projects.js
+│   ├── index.css
+│   ├── main.jsx
+│   └── pages
+│       ├── About.jsx
+│       ├── Contact.jsx
+│       ├── Home.jsx
+│       ├── Portfolio.jsx
+│       └── Services.jsx
+├── tailwind.config.js
+└── vite.config.js
+
+8 directories, 32 files
