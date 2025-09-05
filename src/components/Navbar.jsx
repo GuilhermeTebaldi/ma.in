@@ -20,7 +20,8 @@ export default function Navbar() {
     } catch { /* empty */ }
   }
 
-  // ===== tema antigo (mantido para classe .dark; sem botão) =====
+  // ===== tema (mantido para classe .dark; sem botão) =====
+  // persiste tema e respeita prefers-color-scheme
   // eslint-disable-next-line no-unused-vars
   const [dark, setDark] = useState(() => {
     if (typeof window === 'undefined') return true
@@ -48,22 +49,22 @@ export default function Navbar() {
   const navLinkClass = ({ isActive }) =>
     `px-4 py-2 rounded-lg transition ${
       isActive
-        ? 'bg-white/10 text-white'
-        : 'text-white/80 hover:text-white hover:bg-white/5 dark:text-white/80'
+        ? 'bg-e-panel/20 text-e-text border border-e-stroke/60'
+        : 'text-e-text/80 hover:text-e-text hover:bg-e-panel/10'
     }`
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur border-b border-e-stroke/60 bg-e-panel/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          {/* Logo: mantém seu SVG */}
+          {/* Logo */}
           <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-e-primary to-e-accent flex items-center justify-center shadow-e-md overflow-hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 384"
               preserveAspectRatio="xMidYMid meet"
               className="w-full h-full p-1.5"
-              aria-label="Logo Pinguim"
+              aria-label="Logo EISTALT"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
                 <circle cx="198" cy="222" r="82" fill="#ffffff" stroke="#222" strokeWidth="0" data-z="0" />
@@ -99,7 +100,7 @@ export default function Navbar() {
               </svg>
             </svg>
           </div>
-          <span className="font-semibold text-white tracking-tight text-lg dark:text-white">
+          <span className="font-semibold text-e-text tracking-tight text-lg">
             EISTALT
           </span>
         </Link>
@@ -136,7 +137,7 @@ export default function Navbar() {
                 <button
                   key={code}
                   onClick={() => changeLang(code)}
-                  className={`w-full text-left px-3 py-2 rounded-lg hover:bg-white/5 ${lang === code ? 'bg-white/5' : ''}`}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-e-text hover:bg-e-panel/10 ${lang === code ? 'bg-e-panel/10' : ''}`}
                 >
                   {label}
                 </button>
