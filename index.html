@@ -3,17 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EISTALT — Sistemas Digitais Sob Demanda</title>
-    <meta name="theme-color" content="#0b1220" />
-
-    <!-- Garante dark antes do React (padrão = dark) -->
+    <title>EISTALT</title>
     <script>
       (function () {
         try {
-          const saved = localStorage.getItem('theme'); // 'dark' | 'light' | null
+          const saved = localStorage.getItem('theme');
           const isDark = saved ? saved === 'dark' : true; // PADRÃO: dark
           document.documentElement.classList.toggle('dark', isDark);
-        } catch (e) {}
+        } catch {}
       })();
     </script>
   </head>
