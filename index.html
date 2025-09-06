@@ -4,6 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EISTALT</title>
+
+    <!-- cor padrão já aplicada no primeiro paint -->
+    <style>
+      html, body {
+        background-color: rgb(12, 20, 28); /* mesmo valor do --e-bg no modo escuro */
+        color: rgb(236, 253, 245);        /* mesmo valor do --e-text no modo escuro */
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+
+    <!-- garante que Safari/Chrome mobile use a cor da UI correta -->
+    <meta name="theme-color" content="#0c141c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- aplica tema salvo antes do React montar -->
     <script>
       (function () {
         try {
