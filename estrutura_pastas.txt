@@ -20,6 +20,40 @@
 │   ├── components
 │   │   ├── Footer.jsx
 │   │   ├── Hero.jsx
+│   │   ├── LanguageSwitcher.jsx
+│   │   ├── MiniPortfolioPreview.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── PortfolioCard.jsx
+│   │   ├── PortfolioFilters.jsx
+│   │   ├── RotatingText.css
+│   │   ├── RotatingText.jsx
+│   │   ├── SectionTitle.jsx
+│   │   └── ServiceCard.jsx
+│   ├── data
+│   │   └── projects.js
+│   ├── i18n
+│   │   ├── index.js
+│   │   └── locales
+│   │       ├── en.json
+│   │       ├── it.json
+│   │       └── pt.json
+│   ├── index.css
+│   ├── main.jsx
+│   └── pages
+│       ├── About.jsx
+│       ├── Contact.jsx
+│       ├── Home.jsx
+│       ├── Portfolio.jsx
+│       └── Services.jsx
+├── src_backup
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── LanguageSwitcher.jsx
 │   │   ├── MiniPortfolioPreview.jsx
 │   │   ├── Navbar.jsx
 │   │   ├── PortfolioCard.jsx
@@ -28,6 +62,12 @@
 │   │   └── ServiceCard.jsx
 │   ├── data
 │   │   └── projects.js
+│   ├── i18n
+│   │   ├── index.js
+│   │   └── locales
+│   │       ├── en.json
+│   │       ├── it.json
+│   │       └── pt.json
 │   ├── index.css
 │   ├── main.jsx
 │   └── pages
@@ -37,6 +77,7 @@
 │       ├── Portfolio.jsx
 │       └── Services.jsx
 ├── tailwind.config.js
+├── vercel.json
 └── vite.config.js
 
-8 directories, 32 files
+17 directories, 64 files

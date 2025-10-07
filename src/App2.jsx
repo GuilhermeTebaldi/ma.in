@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export default function App() {
-  // eslint-disable-next-line no-unused-vars
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -93,16 +92,6 @@ export default function App() {
           text-align: center;
           color: #1f2937;
         }
-        .hero-bg {
-          background-image: url('/soldador.jpg');
-          background-size: cover;
-          background-position: center;
-        }
-        .framed-img {
-          border: 6px solid white;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-          border-radius: 1rem;
-        }
       `}</style>
 
       <header className="fixed top-0 inset-x-0 bg-white shadow z-50">
@@ -114,15 +103,21 @@ export default function App() {
               <p className="text-lg font-bold text-gray-900">Ma.In</p>
             </div>
           </a>
-          
+          <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-600">
+            {navItems.map((i) => (
+              <a key={i.href} href={i.href} className="hover:text-gray-900">
+                {i.label}
+              </a>
+            ))}
+          </nav>
         </div>
       </header>
 
-      <section id="home" className="pt-32 pb-20 hero-bg text-white">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+      <section id="home" className="pt-32 pb-20 bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-12">
           <div className="max-w-xl">
-            <h1 className="text-4xl font-extrabold mb-4">Tecnologia & Precisione</h1>
-            <p className="text-lg mb-6">
+            <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Tecnologia & Precisione</h1>
+            <p className="text-lg text-gray-600 mb-6">
               Soluzioni affidabili di manutenzione industriale, carpenteria e automazione.
             </p>
             <div className="flex gap-4">
@@ -130,13 +125,7 @@ export default function App() {
               <a href="#progetti" className="btn-primary bg-gray-100 text-blue-600 hover:bg-gray-200">Progetti</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="section-title">La nostra sede</h2>
-          <img src="/ma.in.png" alt="Fachada Ma.In" className="w-full max-w-3xl mx-auto framed-img" />
+          <img src="/ma.in.png" alt="Hero" className="w-full max-w-md rounded-xl shadow-lg" />
         </div>
       </section>
 
@@ -221,7 +210,6 @@ export default function App() {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
-            title="Street View Ma.In"
           ></iframe>
         </div>
       </section>
@@ -235,100 +223,6 @@ export default function App() {
           ))}
         </nav>
         <p>&copy; {new Date().getFullYear()} MAIN S.R.L. Tutti i diritti riservati.</p>
-      </footer>
-
-      {/* FAB WhatsApp — bonito, com glow, tooltip e safe-area iOS */}
-<a
-  href="https://wa.me/393491234567?text=Ciao%20Ma.In!%20Vorrei%20ricevere%20informazioni%20sui%20vostri%20servizi."
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Chatta su WhatsApp"
-  className="group fixed right-5 z-[99999] outline-none"
-  style={{ bottom: `calc(20px + env(safe-area-inset-bottom))` }}
->
-  <div className="relative">
-    {/* Anel de glow */}
-    <div
-      className="absolute inset-0 rounded-full blur-md opacity-60 group-hover:opacity-90 transition-opacity"
-      style={{
-        background:
-          "conic-gradient(from 0deg, #25D36622, #25D36688, #25D36622)",
-      }}
-    />
-    {/* Botão */}
-    <div
-      className="relative shadow-2xl rounded-full w-16 h-16 flex items-center justify-center transition-transform duration-200 group-hover:scale-105 focus-visible:ring-4 focus-visible:ring-green-300/70"
-      style={{ backgroundColor: "#25D366", transform: "translateZ(0)" }}
-      tabIndex={-1}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 32 32"
-        fill="white"
-        className="w-8 h-8"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M16.01 0.003c-8.84 0-16 6.73-16 15.01 0 2.65 0.84 5.17 2.3 7.36l-2.3 6.62 6.86-2.23c2.13 1.16 4.57 1.84 9.14 1.84 8.84 0 16-6.73 16-15.01s-7.16-15.01-16-15.01zM16.01 27.7c-2.71 0-4.93-0.48-7.11-1.68l-0.51-0.29-4.08 1.33 1.33-3.95-0.33-0.52c-1.17-1.76-1.88-3.83-1.88-6.11 0-6.54 5.51-11.86 12.29-11.86 6.61 0 12.01 5.17 12.01 11.71 0 6.66-5.4 12.37-12.71 12.37zM21.68 19.79c-0.36-0.18-2.16-1.06-2.49-1.18-0.33-0.12-0.57-0.18-0.81 0.18-0.24 0.36-0.93 1.18-1.14 1.42-0.21 0.24-0.42 0.27-0.78 0.09-0.36-0.18-1.52-0.56-2.89-1.77-1.07-0.95-1.78-2.11-1.99-2.47s-0.02-0.55 0.15-0.73c0.15-0.15 0.33-0.39 0.51-0.6 0.18-0.21 0.24-0.36 0.36-0.6s0.06-0.45-0.03-0.63c-0.09-0.18-0.81-1.95-1.11-2.67-0.3-0.72-0.6-0.63-0.81-0.63h-0.69c-0.24 0-0.63 0.09-0.96 0.45-0.33 0.36-1.26 1.23-1.26 3s1.29 3.48 1.47 3.72c0.18 0.24 2.55 4.02 6.15 5.65 0.86 0.36 1.53 0.57 2.07 0.72 0.87 0.27 1.65 0.24 2.27 0.15 0.69-0.09 2.13-0.84 2.43-1.63 0.3-0.78 0.3-1.44 0.21-1.6-0.09-0.15-0.33-0.24-0.69-0.42z" />
-      </svg>
-      <span className="sr-only">Chatta su WhatsApp</span>
-      {/* Ponto online */}
-      <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-white">
-        <span className="absolute inset-0 rounded-full bg-emerald-500"></span>
-      </span>
-    </div>
-    {/* Tooltip */}
-    <div className="absolute left-1/2 -translate-x-1/2 -top-9 w-max px-3 py-1 rounded-full text-xs font-medium bg-black/80 text-white opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition">
-      Chatta su WhatsApp
-    </div>
-  </div>
-</a>
-
-          
-      {/* ====== Footer ====== */}
-      <footer className="border-t border-white/5 bg-neutral-0">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <p className="text-lg font-semibold text-white">Ma.In</p>
-              <p className="mt-2 text-sm text-neutral-300">Manutenzione Industriale - S.r.l.</p>
-              <p className="mt-2 text-xs text-neutral-400">Tecnologia e precisione per la metalmeccanica italiana.</p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-white">Navigazione</p>
-              
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-white">Dati societari</p>
-              <ul className="mt-3 space-y-1 text-xs text-neutral-400">
-                <li>Partita IVA: 01593111006</li>
-                <li>Codice Fiscale: 06670620589</li>
-                <li>REA: 537751</li>
-                <li>Fatturato: € 3.582.120,00 (2024)</li>
-                <li>Dipendenti: 35 (2025)</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-white">Contatti</p>
-              <ul className="mt-3 space-y-1 text-sm text-neutral-300">
-                <li>📍 Via Pantanelle, km 0/200, 00048 Nettuno RM</li>
-                <li>📞 06 981 9415</li>
-                <li>📧 main.srl@pec.main-cmc.it</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-6 text-xs text-neutral-500 sm:flex-row">
-            <p>© {new Date().getFullYear()} Ma.In — Tutti i diritti riservati.</p>
-            <div className="flex items-center gap-3">
-              <a href="#" className="hover:text-neutral-300">Privacy</a>
-              <span aria-hidden>•</span>
-              <a href="#" className="hover:text-neutral-300">Cookie</a>
-              <span aria-hidden>•</span>
-              <a href="#" className="hover:text-neutral-300">Note legali</a>
-            </div>
-          </div>
-        </div>
       </footer>
     </main>
   );
