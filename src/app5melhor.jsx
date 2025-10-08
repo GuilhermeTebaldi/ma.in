@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /**
@@ -14,10 +15,28 @@ function Meta(){
     const s = document.createElement('style');
     s.innerHTML = `html{scroll-behavior:smooth}`;
     document.head.appendChild(s);
-    return ()=> document.head.removeChild(s);
+
+    // Preload do vídeo
+    const p1 = document.createElement('link');
+    p1.rel = 'preload';
+    p1.as = 'video';
+    p1.href = '/media/welding.webm';    // use o nome real
+    p1.type = 'video/webm';
+    p1.fetchPriority = 'high';
+    document.head.appendChild(p1);
+
+    const p2 = document.createElement('link');
+    p2.rel = 'preload';
+    p2.as = 'video';
+    p2.href = '/media/welding.mp4';
+    p2.type = 'video/mp4';
+    document.head.appendChild(p2);
+
+    return ()=> { document.head.removeChild(s); document.head.removeChild(p1); document.head.removeChild(p2); };
   },[]);
   return null;
 }
+
 
 // ===== Navbar flutuante =====
 function Nav(){
@@ -28,17 +47,12 @@ function Nav(){
     {href:'#about',label:'Chi Siamo'},
     {href:'#contatti',label:'Contatti'},
   ],[]);
-  const [open,setOpen]=useState(false);
+
   return (
     <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+      {/* Desktop */}
       <div className="hidden md:flex items-center gap-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 px-2 py-1 shadow-lg">
-      <a href="#home" className="flex items-center gap-3">
-          <img src="/logo.jpg" alt="Logo Ma.In" width={40} height={40} className="h-10 w-10 rounded" loading="eager" fetchpriority="high"/>
-          <div className="leading-tight">
-            <p className="text-xs text-slate-500">Manutenzione Industriale - S.r.l.</p>
-            <strong className="text-slate-900">Ma.In</strong>
-          </div>
-        </a><a href="#start" className="flex items-center gap-2 rounded-full px-3 py-1.5 text-white/90 hover:text-white">
+        <a href="#start" className="flex items-center gap-2 rounded-full px-3 py-1.5 text-white/90 hover:text-white">
           <img src="/logo.jpg" alt="Ma.In" className="w-6 h-6 rounded"/>
           <span className="font-semibold tracking-wide">Ma.In</span>
         </a>
@@ -47,18 +61,16 @@ function Nav(){
             {i.label}
           </a>
         ))}
-        <a href="#contatti" className="ml-2 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-900 text-sm font-bold px-3 py-1.5">Preventivo</a>
+        <a href="#contatti" className="ml-2 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-900 text-sm font-bold px-3 py-1.5">
+          Preventivo
+        </a>
       </div>
-      <button className="md:hidden rounded-full bg-white/10 border border-white/20 backdrop-blur-xl px-3 py-2 text-white" aria-label="menu" onClick={()=>setOpen(v=>!v)}>
-        ☰
-      </button>
-      {open && (
-        <nav className="md:hidden mt-2 grid bg-slate-900/90 border border-white/10 rounded-xl p-2 text-white/90">
-          {[{href:'#start',label:'Start'},...items].map(i=> (
-            <a key={i.href} href={i.href} className="px-3 py-2 rounded-lg hover:bg-white/10" onClick={()=>setOpen(false)}>{i.label}</a>
-          ))}
-        </nav>
-      )}
+
+      {/* Mobile: só a logo */}
+      <a href="#start" className="md:hidden flex items-center justify-center rounded-full bg-white/10 backdrop-blur-xl border border-white/20 px-3 py-2 shadow-lg">
+        <img src="/logo.jpg" alt="Ma.In" className="w-7 h-7 rounded"/>
+        <span className="sr-only">Ma.In</span>
+      </a>
     </div>
   );
 }
@@ -69,7 +81,26 @@ function Hero(){
     <section id="start" className="relative min-h-[92vh] grid place-items-center overflow-hidden">
       {/* BG */}
       <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,#0ea5e955,transparent_60%)]"/>
-      <img src="/soldador.jpg" alt="Saldatura" className="absolute inset-0 w-full h-full object-cover opacity-30"/>
+     {/* BG */}
+<div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,#0ea5e955,transparent_60%)]"/>
+<video
+  className="absolute inset-0 w-full h-full object-cover opacity-40 transition-opacity duration-300"
+  poster="/welding-frame.jpg"
+  muted
+  playsInline
+  autoPlay
+  loop
+  preload="auto"
+  onLoadedData={e => { e.currentTarget.style.opacity = 0.4; }}
+  aria-label="Soldagem industrial em close"
+>
+  <source src="/media/welding.webm" type="video/webm" />
+  <source src="/media/welding.mp4"  type="video/mp4" />
+</video>
+
+<div className="absolute -left-24 -top-24 w-[60vw] h-[60vw] rotate-12 bg-gradient-to-br from-emerald-500/30 to-sky-500/10 blur-3xl"/>
+<div className="absolute -right-24 -bottom-24 w-[60vw] h-[60vw] -rotate-12 bg-gradient-to-tr from-amber-400/20 to-fuchsia-500/10 blur-3xl"/>
+
       <div className="absolute -left-24 -top-24 w-[60vw] h-[60vw] rotate-12 bg-gradient-to-br from-emerald-500/30 to-sky-500/10 blur-3xl"/>
       <div className="absolute -right-24 -bottom-24 w-[60vw] h-[60vw] -rotate-12 bg-gradient-to-tr from-amber-400/20 to-fuchsia-500/10 blur-3xl"/>
 
@@ -119,6 +150,7 @@ function Servizi(){
   return (
     <section id="servizi" className="relative py-16 bg-slate-950">
       <div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_10%_10%,#22c55e22,transparent_60%)]"/>
+     
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         <div className="flex items-end justify-between">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white">Servizi</h2>
@@ -150,7 +182,7 @@ function Progetti(){
     {t:'Lavorazione acciaio inox', img:'/engrenagem3.jpg'},
   ];
   return (
-    <section id="progetti" className="relative py-16 bg-slate-900">
+    <section id="progetti" className="relative py-16 bg-slate-900"> <img src="/soldador.jpg" alt="Saldatura" className="absolute inset-0 w-full h-full object-cover opacity-30"/>
       <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_90%_20%,#f59e0b22,transparent_60%)]"/>
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-8">Progetti</h2>
