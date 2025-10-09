@@ -116,9 +116,9 @@ function Hero(){
         <source src="/media/welding.webm" type="video/webm" />
       </video>
 
-      {/* Light blobs sutis */}
-      <div className="absolute -left-24 -top-24 w-[60vw] h-[60vw] rotate-12 bg-gradient-to-br from-emerald-500/25 to-sky-500/10 blur-3xl" />
-      <div className="absolute -right-24 -bottom-24 w-[60vw] h-[60vw] -rotate-12 bg-gradient-to-tr from-amber-400/15 to-fuchsia-500/10 blur-3xl" />
+      {/* Light blobs sutis em cima do video  */}
+      <div className="absolute -left-24 -top-24 w-[10vw] h-[10vw] rotate-12 bg-gradient-to-br from-emerald-500/25 to-sky-500/10 blur-3xl" />
+      <div className="absolute -right-24 -bottom-24 w-[10vw] h-[10vw] -rotate-12 bg-gradient-to-tr from-amber-400/15 to-fuchsia-500/10 blur-3xl" />
 
       {/* Conteúdo */}
       <div className="relative z-10 max-w-7xl w-full px-6 md:px-10">
