@@ -29,7 +29,7 @@ function Meta(){
     p2.rel = 'preload';
     p2.as = 'video';
     p2.href = '/media/welding.webm';
-    p2.type = 'video/webm';
+    p2.type = 'video/mp4';
     document.head.appendChild(p2);
 
     return ()=> { document.head.removeChild(s); document.head.removeChild(p1); document.head.removeChild(p2); };
