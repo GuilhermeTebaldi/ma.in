@@ -204,6 +204,87 @@ function SplashMAIN(){
 }
 
 
+// ===== Progetti — Versão Luxury Tech 2.0 =====
+function Progetti() {
+  const list = [
+    { t: 'Revamping linea imbottigliamento', img: '/engrenagem.jpg' },
+    { t: 'Ingranaggi di precisione', img: '/engrenagem2.jpg' },
+    { t: 'Lavorazione acciaio inox', img: '/engrenagem3.jpg' },
+  ];
+
+  return (
+    <section
+      id="progetti"
+      className="relative py-28 bg-gradient-to-b from-[#0a0c10] via-[#0d1117] to-[#0a0c10] overflow-hidden"
+    >
+      {/* Luz ambiente */}
+      <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,#007aff33,transparent_75%)] blur-3xl" />
+      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+        <header className="flex flex-col items-center mb-20 text-center">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
+            <span className="text-[#007aff]">Progetti</span> d’Eccellenza
+          </h2>
+          <p className="mt-4 text-white/70 max-w-2xl">
+            Ogni realizzazione è il risultato di innovazione, design tecnico e
+            precisione artigianale.
+          </p>
+        </header>
+
+        {/* Galeria com profundidade e reflexo */}
+        <div className="grid md:grid-cols-3 gap-10 perspective-[1200px]">
+          {list.map((p, i) => (
+            <article
+              key={i}
+              className="group relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-[#121418] to-[#0b0c10]
+                         shadow-[0_0_25px_rgba(0,0,0,0.4)] hover:shadow-[0_0_60px_rgba(0,122,255,0.25)]
+                         transition-all duration-700 ease-out hover:rotate-1 hover:-translate-y-2 transform-gpu"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.t}
+                  className="w-full h-[400px] object-cover transition-transform duration-[1800ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Efeito vidro reflexivo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.05)_0%,transparent_60%)] mix-blend-overlay opacity-0 group-hover:opacity-100 transition duration-700" />
+              </div>
+
+              {/* Texto flutuante */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-black/30 border-t border-white/10 transition-all duration-500 group-hover:bg-black/50">
+                <h3 className="text-xl font-semibold text-white group-hover:text-[#007aff] transition-colors duration-500">
+                  {p.t}
+                </h3>
+                <p className="text-sm text-white/70 mt-1">Engineering & Design</p>
+                <span className="absolute top-4 right-6 px-3 py-1 rounded-full bg-[#007aff] text-white text-xs font-semibold shadow-lg">
+                  Case
+                </span>
+              </div>
+
+              {/* Glow metálico dinâmico */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#007aff55,transparent_70%)] blur-2xl" />
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <a
+            href="#contatti"
+            className="inline-block px-10 py-4 rounded-full border border-[#007aff] text-[#007aff] hover:bg-[#007aff]
+                       hover:text-white font-bold text-sm uppercase tracking-wider transition-colors shadow-[0_0_15px_rgba(0,122,255,0.2)]"
+          >
+            Scopri di più
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ===== Carrossel horizontal de serviços — modelo alternativo =====
 function Servizi() {
   const data = [
@@ -349,87 +430,6 @@ function Servizi() {
 }
 
 
-// ===== Progetti — Versão Luxury Tech 2.0 =====
-function Progetti() {
-  const list = [
-    { t: 'Revamping linea imbottigliamento', img: '/engrenagem.jpg' },
-    { t: 'Ingranaggi di precisione', img: '/engrenagem2.jpg' },
-    { t: 'Lavorazione acciaio inox', img: '/engrenagem3.jpg' },
-  ];
-
-  return (
-    <section
-      id="progetti"
-      className="relative py-28 bg-gradient-to-b from-[#0a0c10] via-[#0d1117] to-[#0a0c10] overflow-hidden"
-    >
-      {/* Luz ambiente */}
-      <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,#007aff33,transparent_75%)] blur-3xl" />
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-        <header className="flex flex-col items-center mb-20 text-center">
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
-            <span className="text-[#007aff]">Progetti</span> d’Eccellenza
-          </h2>
-          <p className="mt-4 text-white/70 max-w-2xl">
-            Ogni realizzazione è il risultato di innovazione, design tecnico e
-            precisione artigianale.
-          </p>
-        </header>
-
-        {/* Galeria com profundidade e reflexo */}
-        <div className="grid md:grid-cols-3 gap-10 perspective-[1200px]">
-          {list.map((p, i) => (
-            <article
-              key={i}
-              className="group relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-[#121418] to-[#0b0c10]
-                         shadow-[0_0_25px_rgba(0,0,0,0.4)] hover:shadow-[0_0_60px_rgba(0,122,255,0.25)]
-                         transition-all duration-700 ease-out hover:rotate-1 hover:-translate-y-2 transform-gpu"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={p.img}
-                  alt={p.t}
-                  className="w-full h-[400px] object-cover transition-transform duration-[1800ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-110"
-                  loading="lazy"
-                />
-                {/* Efeito vidro reflexivo */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.05)_0%,transparent_60%)] mix-blend-overlay opacity-0 group-hover:opacity-100 transition duration-700" />
-              </div>
-
-              {/* Texto flutuante */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-black/30 border-t border-white/10 transition-all duration-500 group-hover:bg-black/50">
-                <h3 className="text-xl font-semibold text-white group-hover:text-[#007aff] transition-colors duration-500">
-                  {p.t}
-                </h3>
-                <p className="text-sm text-white/70 mt-1">Engineering & Design</p>
-                <span className="absolute top-4 right-6 px-3 py-1 rounded-full bg-[#007aff] text-white text-xs font-semibold shadow-lg">
-                  Case
-                </span>
-              </div>
-
-              {/* Glow metálico dinâmico */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#007aff55,transparent_70%)] blur-2xl" />
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-20 text-center">
-          <a
-            href="#contatti"
-            className="inline-block px-10 py-4 rounded-full border border-[#007aff] text-[#007aff] hover:bg-[#007aff]
-                       hover:text-white font-bold text-sm uppercase tracking-wider transition-colors shadow-[0_0_15px_rgba(0,122,255,0.2)]"
-          >
-            Scopri di più
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 
 
 // ===== About em timeline vertical =====
@@ -570,8 +570,8 @@ export default function App(){
       <SplashMAIN/>
       <Nav/>
       <Hero/>
-      <Servizi/>
-      <Progetti/>
+       <Progetti/>
+      <Servizi/>   
       <About/>
       <Contatti/>
       <WhatsAppFAB/>
