@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+ 
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /**
@@ -70,7 +70,7 @@ function Nav(){
       <div className="hidden md:flex items-center gap-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 px-2 py-1 shadow-lg">
         <a href="#start" className="flex items-center gap-2 rounded-full px-3 py-1.5 text-white/90 hover:text-white">
           <img src="/logo.jpg" alt="Ma.In" className="w-6 h-6 rounded"/>
-          <span className="font-semibold tracking-wide">Ma.In</span>
+          <span className="font-semibold tracking-wide"></span>
         </a>
         {items.map(i=> (
           <a key={i.href} href={i.href} className="rounded-full px-3 py-1.5 text-sm text-white/80 hover:text-amber-300">
@@ -117,7 +117,7 @@ function Hero(){
       </video>
 
       {/* Light blobs sutis em cima do video  */}
-      <div className="absolute -left-24 -top-24 w-[10vw] h-[10vw] rotate-12 bg-gradient-to-br from-emerald-500/25 to-sky-500/10 blur-3xl" />
+      <div className="absolute -left-24 -top-24 w-[0vw] h-[10vw] rotate-12 bg-gradient-to-br from-emerald-500/25 to-sky-500/10 blur-3xl" />
       <div className="absolute -right-24 -bottom-24 w-[10vw] h-[10vw] -rotate-12 bg-gradient-to-tr from-amber-400/15 to-fuchsia-500/10 blur-3xl" />
 
       {/* Conteúdo */}
@@ -127,8 +127,18 @@ function Hero(){
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur px-3 py-1 text-xs text-white/80">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"/> Operativi 24/7 su accordo
             </span>
-            <h1 className="mt-4 text-5xl md:text-6xl font-extrabold leading-[1.05] text-white">
-              Tecnologia. Sicurezza. <span className="text-amber-300">Precisione</span>.
+            <h1 className="mt-4 text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tight relative">
+  <span className="bg-gradient-to-r from-amber-300 via-amber-100 to-white bg-clip-text text-transparent">MA</span>
+  <span
+    className="mx-1 inline-block h-[0.2em] w-[0.2em] translate-y-[0.06em] rounded-full bg-amber-400 shadow-[0_0_0_4px_rgba(245,158,11,0.18),0_0_32px_rgba(245,158,11,0.55)] align-middle"
+    aria-hidden
+  />
+  <span className="text-white">IN</span>
+
+ 
+
+            </h1>
+            <h1 className="mt-4 text-5xl md:text-6xl font-extrabold leading-[1.05]text-amber-300"> <span className=" text-white"> Tecnologia. Sicurezza</span>.
             </h1>
             <p className="mt-4 text-white/80 text-lg">
               Manutenzione industriale, carpenteria e automazione con SLA chiari, saldature qualificate e report digitali.
@@ -149,6 +159,47 @@ function Hero(){
       {/* Divisor diagonal */}
       <div className="absolute bottom-0 left-0 right-0 h-24 skew-y-[--0deg] origin-bottom bg-gradient-to-t from-slate-950 to-transparent"/>
     </section>
+  );
+}
+// ===== Splash tipo Ferrari (preto -> MA•IN -> site) =====
+function SplashMAIN(){
+  const [mounted, setMounted] = useState(false);
+  const [hide, setHide] = useState(false);
+
+  useEffect(() => {
+    // bloqueia scroll durante o splash
+    document.body.classList.add('overflow-hidden', 'bg-black');
+    requestAnimationFrame(() => setMounted(true));
+    const t = setTimeout(() => {
+      setHide(true);
+      document.body.classList.remove('overflow-hidden');
+    }, 1100); // duração visível do splash
+    return () => { clearTimeout(t); document.body.classList.remove('overflow-hidden'); };
+  }, []);
+
+  return (
+    <div
+      className={`fixed inset-0 z-[999] grid place-items-center bg-black transition-opacity duration-500 ${
+        hide ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      }`}
+      aria-hidden={hide}
+    >
+      <div
+        className={`transform-gpu transition-all duration-500 ${
+          mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        }`}
+      >
+        <h1 className="text-[10vw] leading-none md:text-7xl font-extrabold tracking-[0.25em] text-white text-center">
+          <span className="bg-gradient-to-r from-amber-300 via-amber-100 to-white bg-clip-text text-transparent">MA</span>
+          <span
+            className="mx-[0.22em] inline-block h-[0.18em] w-[0.18em] translate-y-[0.08em] rounded-full bg-amber-400 shadow-[0_0_0_8px_rgba(245,158,11,0.16),0_0_36px_rgba(245,158,11,0.55)] align-middle animate-pulse"
+            aria-hidden
+          />
+          <span className="text-white">IN</span>
+        </h1>
+        <div className="mx-auto mt-6 h-[2px] w-24 md:w-32 rounded-full bg-gradient-to-r from-amber-400 via-sky-400 to-fuchsia-500 opacity-70" />
+      </div>
+    </div>
   );
 }
 
@@ -463,6 +514,7 @@ function Contatti(){
               <div className="absolute -bottom-6 -left-6 rotate-[-3deg] rounded-2xl bg-emerald-400 text-slate-900 font-bold px-4 py-2 shadow-xl">35 Dipendenti</div>
               <div className="absolute -top-6 -right-6 rotate-3 rounded-2xl bg-sky-400 text-slate-900 font-bold px-4 py-2 shadow-xl">120+ Progetti/anno</div>
             </div>
+            <h2 className="text-3xl font-extrabold">"</ h2>
             <h2 className="text-3xl font-extrabold">Contatti</h2>
             <ul className="mt-4 space-y-2 text-white/85">
               <li>📍 Via Pantanelle, km 0/200, 00048 Nettuno RM</li>
@@ -515,6 +567,7 @@ export default function App(){
   return (
     <main className="min-h-screen text-white selection:bg-amber-300 selection:text-slate-900">
       <Meta/>
+      <SplashMAIN/>
       <Nav/>
       <Hero/>
       <Servizi/>
