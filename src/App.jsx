@@ -147,7 +147,7 @@ function Hero(){
       </div>
 
       {/* Divisor diagonal */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 skew-y-[-4deg] origin-bottom bg-gradient-to-t from-slate-950 to-transparent"/>
+      <div className="absolute bottom-0 left-0 right-0 h-24 skew-y-[--0deg] origin-bottom bg-gradient-to-t from-slate-950 to-transparent"/>
     </section>
   );
 }
