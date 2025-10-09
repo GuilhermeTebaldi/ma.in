@@ -7,32 +7,48 @@ import { useEffect, useMemo, useRef, useState } from "react";
  * JSX puro (sem TypeScript). Apenas Tailwind.
  */
 
-// ===== Utils =====
+// ===== Utils — Meta (preload correto e agressivo) =====
 function Meta(){
   useEffect(()=>{
     document.title = "Ma.In — Industrial Service Studio";
     document.documentElement.lang = 'it';
+
     const s = document.createElement('style');
     s.innerHTML = `html{scroll-behavior:smooth}`;
     document.head.appendChild(s);
 
-    // Preload do vídeo
-    const p1 = document.createElement('link');
-    p1.rel = 'preload';
-    p1.as = 'video';
-    p1.href = '/media/welding.webm';    // use o nome real
-    p1.type = 'video/webm';
-    p1.fetchPriority = 'high';
-    document.head.appendChild(p1);
+    // Preload do poster (aparece instantâneo)
+    const poster = document.createElement('link');
+    poster.rel = 'preload';
+    poster.as = 'image';
+    poster.href = '/welding-frame.jpg';
+    poster.fetchPriority = 'high';
+    document.head.appendChild(poster);
 
-    const p2 = document.createElement('link');
-    p2.rel = 'preload';
-    p2.as = 'video';
-    p2.href = '/media/welding.webm';
-    p2.type = 'video/mp4';
-    document.head.appendChild(p2);
+    // Preload dos vídeos (mp4 primeiro p/ iOS)
+    const mp4 = document.createElement('link');
+    mp4.rel = 'preload';
+    mp4.as = 'video';
+    mp4.href = '/media/welding.mp4';
+    mp4.type = 'video/mp4';
+    mp4.crossOrigin = 'anonymous';
+    mp4.fetchPriority = 'high';
+    document.head.appendChild(mp4);
 
-    return ()=> { document.head.removeChild(s); document.head.removeChild(p1); document.head.removeChild(p2); };
+    const webm = document.createElement('link');
+    webm.rel = 'preload';
+    webm.as = 'video';
+    webm.href = '/media/welding.webm';
+    webm.type = 'video/webm';
+    webm.crossOrigin = 'anonymous';
+    document.head.appendChild(webm);
+
+    return ()=> {
+      document.head.removeChild(s);
+      document.head.removeChild(poster);
+      document.head.removeChild(mp4);
+      document.head.removeChild(webm);
+    };
   },[]);
   return null;
 }
@@ -75,36 +91,36 @@ function Nav(){
   );
 }
 
-// ===== Hero diagonal =====
+// ===== Hero — vídeo rápido e sem flash preto =====
 function Hero(){
   return (
-    <section id="start" className="relative min-h-[92vh] grid place-items-center overflow-hidden">
-      {/* BG */}
-      <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,#0ea5e955,transparent_60%)]"/>
-     {/* BG */}
-<div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,#0ea5e955,transparent_60%)]"/>
-<video
-  className="absolute inset-0 w-full h-full object-cover opacity-40 transition-opacity duration-300"
-  poster="/welding-frame.jpg"
-  muted
-  playsInline
-  autoPlay
-  loop
-  preload="auto"
-  onLoadedData={e => { e.currentTarget.style.opacity = 0.4; }}
-  aria-label="Soldagem industrial em close"
->
-  <source src="/media/welding.webm" type="video/webm" />
-  <source src="/media/welding.mp4"  type="video/mp4" />
-</video>
+    <section id="start" className="relative min-h-[92vh] grid place-items-center overflow-hidden bg-slate-950">
+      {/* BG base leve (1 só camada) */}
+      <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,#0ea5e930,transparent_60%)]" />
 
-<div className="absolute -left-24 -top-24 w-[60vw] h-[60vw] rotate-12 bg-gradient-to-br from-emerald-500/30 to-sky-500/10 blur-3xl"/>
-<div className="absolute -right-24 -bottom-24 w-[60vw] h-[60vw] -rotate-12 bg-gradient-to-tr from-amber-400/20 to-fuchsia-500/10 blur-3xl"/>
+      {/* Vídeo: MP4 primeiro, crossOrigin, só aparece quando pode tocar */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
+        poster="/welding-frame.jpg"
+        muted
+        playsInline
+        autoPlay
+        loop
+        preload="auto"
+        crossOrigin="anonymous"
+        onCanPlay={e => { e.currentTarget.style.opacity = 0.4; }}
+        onPlay={e => { if (e.currentTarget.style.opacity !== '0.4') e.currentTarget.style.opacity = 0.4; }}
+        aria-label="Soldagem industrial em close"
+      >
+        <source src="/media/welding.mp4"  type="video/mp4" />
+        <source src="/media/welding.webm" type="video/webm" />
+      </video>
 
-      <div className="absolute -left-24 -top-24 w-[60vw] h-[60vw] rotate-12 bg-gradient-to-br from-emerald-500/30 to-sky-500/10 blur-3xl"/>
-      <div className="absolute -right-24 -bottom-24 w-[60vw] h-[60vw] -rotate-12 bg-gradient-to-tr from-amber-400/20 to-fuchsia-500/10 blur-3xl"/>
+      {/* Light blobs sutis */}
+      <div className="absolute -left-24 -top-24 w-[60vw] h-[60vw] rotate-12 bg-gradient-to-br from-emerald-500/25 to-sky-500/10 blur-3xl" />
+      <div className="absolute -right-24 -bottom-24 w-[60vw] h-[60vw] -rotate-12 bg-gradient-to-tr from-amber-400/15 to-fuchsia-500/10 blur-3xl" />
 
-      {/* Content */}
+      {/* Conteúdo */}
       <div className="relative z-10 max-w-7xl w-full px-6 md:px-10">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -127,15 +143,15 @@ function Hero(){
               ))}
             </ul>
           </div>
-          
         </div>
       </div>
 
-      {/* Diagonal divider */}
+      {/* Divisor diagonal */}
       <div className="absolute bottom-0 left-0 right-0 h-24 skew-y-[-4deg] origin-bottom bg-gradient-to-t from-slate-950 to-transparent"/>
     </section>
   );
 }
+
 
 // ===== Carrossel horizontal de serviços — modelo alternativo =====
 function Servizi() {
@@ -410,28 +426,43 @@ function About(){
   );
 }
 
-// ===== Contatos com mapa on‑demand =====
+// ===== Contatos com mapa auto-load =====
 function Contatti(){
   const ref = useRef(null);
+
   const loadMap = () => {
     if (!ref.current) return;
     const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.google.com/maps/embed?pb=!4v1728291000000!6m8!1m7!1srHunZFejEIYGujupt66JOw!2m2!1d41.5353065!2d12.6367095!3f130.24!4f-2.49!5f0.7820865974627469';
-    iframe.width='100%'; iframe.height='380'; iframe.loading='lazy'; iframe.style.border='0'; iframe.title='Street View Ma.In';
+    iframe.src = 'https://www.google.com/maps/embed?pb=!6m8!1m7!1srHunZFejEIYGujupt66JOw!2m2!1d41.5353065!2d12.6367095!3f130.24!4f-2.49!5f0.7820865974627469';
+    iframe.width = '100%';
+    iframe.height = '380';
+    iframe.loading = 'lazy';
+    iframe.style.border = '0';
+    iframe.style.background = '#fff';
+    iframe.title = 'Street View Ma.In';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
     ref.current.replaceWith(iframe);
   };
+
+  useEffect(() => {
+    const id = requestAnimationFrame(loadMap); // garante após paint
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <section id="contatti" className="relative py-16 bg-slate-900">
       <div className="absolute inset-0 bg-[radial-gradient(35%_35%_at_70%_20%,#f59e0b22,transparent_60%)]"/>
       <div className="relative max-w-6xl mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          <div className="rounded-3xl bg-white/5 border border-white/15 p-6 text-white shadow-xl"><div className="relative">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-white/20 bg-white/5 backdrop-blur-xl shadow-2xl">
-              <img src="/ma.in.png" alt="Sede Ma.In" className="w-full h-full object-cover" loading="lazy" decoding="async"/>
+          <div className="rounded-3xl bg-white/5 border border-white/15 p-6 text-white shadow-xl">
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-white/20 bg-white/5 backdrop-blur-xl shadow-2xl">
+                <img src="/ma.in.png" alt="Sede Ma.In" className="w-full h-full object-cover" loading="lazy" decoding="async"/>
+              </div>
+              <div className="absolute -bottom-6 -left-6 rotate-[-3deg] rounded-2xl bg-emerald-400 text-slate-900 font-bold px-4 py-2 shadow-xl">35 Dipendenti</div>
+              <div className="absolute -top-6 -right-6 rotate-3 rounded-2xl bg-sky-400 text-slate-900 font-bold px-4 py-2 shadow-xl">120+ Progetti/anno</div>
             </div>
-            <div className="absolute -bottom-6 -left-6 rotate-[-3deg] rounded-2xl bg-emerald-400 text-slate-900 font-bold px-4 py-2 shadow-xl">35 Dipendenti</div>
-            <div className="absolute -top-6 -right-6 rotate-3 rounded-2xl bg-sky-400 text-slate-900 font-bold px-4 py-2 shadow-xl">120+ Progetti/anno</div>
-          </div> <h2 className="text-3xl font-extrabold">.</h2>
             <h2 className="text-3xl font-extrabold">Contatti</h2>
             <ul className="mt-4 space-y-2 text-white/85">
               <li>📍 Via Pantanelle, km 0/200, 00048 Nettuno RM</li>
@@ -440,16 +471,20 @@ function Contatti(){
               <li>➕ Plus Code: GJPP+4P Nettuno, Roma</li>
             </ul>
             <form className="mt-6 grid gap-3">
-              <input className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50" placeholder="Nome"/>
-              <input type="email" className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50" placeholder="Email"/>
-              <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50" placeholder="Messaggio"/>
+              <input className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50" placeholder="Nome" required/>
+              <input type="email" className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50" placeholder="Email" required/>
+              <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50" placeholder="Messaggio" required/>
               <button className="rounded-xl bg-amber-400 text-slate-900 font-bold px-5 py-3 hover:bg-amber-300">Invia</button>
             </form>
           </div>
+
+          {/* placeholder substituído no mount */}
           <div className="rounded-3xl overflow-hidden border border-white/15">
-            <button ref={ref} onClick={loadMap} className="group w-full h-[380px] bg-[url('/map-placeholder.jpg')] bg-cover bg-center grid place-items-end">
-              <span className="m-4 rounded-full bg-white/90 text-slate-900 text-sm font-semibold px-4 py-2 group-hover:bg-white">Apri mappa</span>
-            </button>
+            <div
+              ref={ref}
+              className="w-full h-[380px] bg-[url('/map-placeholder.jpg')] bg-cover bg-center"
+              aria-label="Mapa"
+            />
           </div>
         </div>
         <p className="mt-8 text-center text-white/50 text-xs">© {new Date().getFullYear()} MAIN S.R.L. Tutti i diritti riservati.</p>
@@ -457,6 +492,7 @@ function Contatti(){
     </section>
   );
 }
+
 
 function WhatsAppFAB(){
   return (
