@@ -117,8 +117,8 @@ function Hero(){
       </video>
 
       {/* Light blobs sutis em cima do video  */}
-      <div className="absolute -left-24 -top-24 w-[0vw] h-[10vw] rotate-12 bg-gradient-to-br from-emerald-500/25 to-sky-500/10 blur-3xl" />
-      <div className="absolute -right-24 -bottom-24 w-[10vw] h-[10vw] -rotate-12 bg-gradient-to-tr from-amber-400/15 to-fuchsia-500/10 blur-3xl" />
+      <div className="absolute -left-24 -top-24 w-[0vw] h-[0vw] rotate-12 bg-gradient-to-br from-emerald-500/5 to-sky-500/10 blur-3xl" />
+      <div className="absolute -right-24 -bottom-24 w-[0vw] h-[0vw] -rotate-2 bg-gradient-to-tr from-amber-400/15 to-fuchsia-500/10 blur-3xl" />
 
       {/* Conteúdo */}
       <div className="relative z-10 max-w-7xl w-full px-6 md:px-10">
@@ -268,8 +268,14 @@ function Progetti() {
                   {/* Barra inclinada */}
                   <div className="relative h-[220px] sm:h-[240px] md:h-[220px] lg:h-[260px]">
                     <div className="absolute inset-0 skew-y-[var(--sk)] rounded-[22px] border border-white/10 bg-gradient-to-br from-[#121418] to-[#0b0c10] shadow-[0_0_28px_rgba(0,0,0,0.35)] overflow-hidden">
-                      <img src={p.img} alt={p.t} className="absolute inset-0 w-full h-full object-cover opacity-95 scale-105 transition-transform duration-[1600ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-110 -skew-y-[var(--sk)]" loading="lazy" />
-                      <div className={`absolute inset-0 -skew-y-[var(--sk)] ${right? 'bg-gradient-to-l':'bg-gradient-to-r'} from-black/45 via-black/15 to-transparent`} />
+                    <img
+  src={p.img}
+  alt={p.t}
+  loading="lazy"
+  className="absolute inset-0 w-full h-full object-cover opacity-95 origin-center will-change-transform -skew-y-[var(--sk)] scale-[1.08] group-hover:scale-[1.12] transition-transform duration-[1600ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+/>
+
+  <div className={`absolute inset-0 -skew-y-[var(--sk)] ${right? 'bg-gradient-to-l':'bg-gradient-to-r'} from-black/45 via-black/15 to-transparent`} />
                       <div className="absolute inset-x-0 -bottom-0.5 h-[3px] -skew-y-[var(--sk)] bg-gradient-to-r from-sky-400/0 via-sky-400/90 to-sky-400/0" />
                     </div>
                     <div className="pointer-events-none absolute -inset-[10px] skew-y-[var(--sk)] rounded-[24px] ring-1 ring-sky-400/20" />
